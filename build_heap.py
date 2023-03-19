@@ -17,7 +17,7 @@ def build_heap(data,i):
             swaps.append(j)
             swaps.append(min)
             data[j], data[min] = data[min], data[j]
-            check(data,j//2)
+            check(data,min)
         else:
             build_heap(data,j-1)
     
