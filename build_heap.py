@@ -53,14 +53,17 @@ def main():
     n=0
     text1=[]
     text2=[]
+    # print("hello")
     for i, next in enumerate(text):
         if next in "I":
+            # print("ii")
             n = int(input())
             data = list(map(int, input().split()))
-
+    # print("qwewq")
     for i, next in enumerate(text):
         if next in "F":
-            text1="/workspaces/convert-array-into-heap-egilskalns/tests/"
+            # print("1231")
+            text1="tests/"
             text2=input()
             file=open(text1+text2,"r")
             text1=file.read()
@@ -70,7 +73,8 @@ def main():
             data=[int(i) for i in text1.split(' ')]
             n=data[0]
             data=data[1:]
-            
+            print(data)
+
     assert len(data) == n
 
     # calls function to assess the data 
