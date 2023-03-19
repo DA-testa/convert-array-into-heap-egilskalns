@@ -49,6 +49,7 @@ def main():
     # add another input for I or F 
     # first two tests are from keyboard, third test is from a file
     text=input()
+    data=0
     if text == "I":
         n = int(input())
         data = list(map(int, input().split()))
