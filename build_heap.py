@@ -51,19 +51,21 @@ def main():
     text=input()
     data=[]
     n=0
-    if text == "I":
+    text1=[]
+    text2=[]
+    if text in "I":
         n = int(input())
         data = list(map(int, input().split()))
 
-    if text == "F":
+    elif text in "F":
         text1="/workspaces/convert-array-into-heap-egilskalns/tests/"
         text2=input()
         file=open(text1+text2,"r")
-        text3=file.read()
+        text1=file.read()
         file.close()
-        text3=text3.replace("\n"," ")
-        text3=text3.strip()
-        data=[int(i) for i in text3.split(' ')]
+        text1=text1.replace("\n"," ")
+        text1=text1.strip()
+        data=[int(i) for i in text1.split(' ')]
         n=data[0]
         data=data[1:]
         # print(data,n)
@@ -84,4 +86,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
