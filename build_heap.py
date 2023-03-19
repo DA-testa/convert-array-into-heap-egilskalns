@@ -9,29 +9,26 @@ def build_heap(data,i):
         
         # if 2*i+1 >= len(data):
         #     build_heap(data,j-1)
+        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+1] > data[j] and data[j] < data[2*j+2]:
+            build_heap(data,j-1)
+        if 2*j+1 < len(data) and 2*j+2 >=len(data) and data[2*j+1] < data[j]:
+            swaps.append(j)
+            swaps.append(2*j+1)
+            data[j], data[2*j+1] = data[2*j+1], data[j]
+            check(data,j//2)
 
-        if 2*j+1 < len(data) and 2*j+2 >=len(data):
-            if data[2*j+1] < data[j]:
-                swaps.append(j)
-                swaps.append(2*j+1)
-                data[j], data[2*j+1] = data[2*j+1], data[j]
-                check(data,j//2)
-            else:
-                build_heap(data,j-1)
+        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+1] < data[j] and data[2*j+1] < data[2*j+2]:
+            swaps.append(j)
+            swaps.append(2*j+1)
+            data[j], data[2*j+1] = data[2*j+1], data[j]
+            check(data,j//2)
 
-        elif 2*j+1 < len(data) and 2*j+2 < len(data):
-            if data[2*j+1] < data[j] and data[2*j+1] < data[2*j+2]:
-                swaps.append(j)
-                swaps.append(2*j+1)
-                data[j], data[2*j+1] = data[2*j+1], data[j]
-                check(data,j//2)
-
-            if data[2*j+2] < data[j] and data[2*j+1] > data[2*j+2]:
-                swaps.append(j)
-                swaps.append(2*j+2)
-                data[j], data[2*j+2] = data[2*j+2], data[j]
-                check(data,j//2)
-            # else:
+        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+2] < data[j] and data[2*j+1] > data[2*j+2]:
+            swaps.append(j)
+            swaps.append(2*j+2)
+            data[j], data[2*j+2] = data[2*j+2], data[j]
+            check(data,j//2)
+        
         build_heap(data,j-1)
     
     j=i
