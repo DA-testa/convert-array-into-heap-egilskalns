@@ -5,31 +5,21 @@ def build_heap(data,i):
     # print(i)
     
     def check(data,j):
-        # print(len(swaps))
-        
-        # if 2*i+1 >= len(data):
-        #     build_heap(data,j-1)
-        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+1] > data[j] and data[j] < data[2*j+2]:
+        # print(len(swaps)//2)
+        min=j
+        if 2*j+1 < len(data) and data[2*j+1] < data[j]:
+            min=2*j+1
+
+        if 2*j+2 < len(data) and data[2*j+1] > data[2*j+2]:
+            min=2*j+2
+
+        if data[min] < data[j]:
+            swaps.append(j)
+            swaps.append(min)
+            data[j], data[min] = data[min], data[j]
+            check(data,j//2)
+        else:
             build_heap(data,j-1)
-        if 2*j+1 < len(data) and 2*j+2 >=len(data) and data[2*j+1] < data[j]:
-            swaps.append(j)
-            swaps.append(2*j+1)
-            data[j], data[2*j+1] = data[2*j+1], data[j]
-            check(data,j//2)
-
-        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+1] < data[j] and data[2*j+1] < data[2*j+2]:
-            swaps.append(j)
-            swaps.append(2*j+1)
-            data[j], data[2*j+1] = data[2*j+1], data[j]
-            check(data,j//2)
-
-        if 2*j+1 < len(data) and 2*j+2 < len(data) and data[2*j+2] < data[j] and data[2*j+1] > data[2*j+2]:
-            swaps.append(j)
-            swaps.append(2*j+2)
-            data[j], data[2*j+2] = data[2*j+2], data[j]
-            check(data,j//2)
-        
-        build_heap(data,j-1)
     
     j=i
     if i<0:
@@ -74,7 +64,7 @@ def main():
     
     # output how many swaps were made
     print(len(swaps)//2)
-    
+    print(data)
     # output all swaps
     for i in range(0,len(swaps)-1,2):
         print(swaps[i],swaps[i+1])
