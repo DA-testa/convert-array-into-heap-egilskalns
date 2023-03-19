@@ -53,24 +53,26 @@ def main():
     n=0
     text1=[]
     text2=[]
-    if text in "I":
-        n = int(input())
-        data = list(map(int, input().split()))
+    for i, next in enumerate(text):
+        if next in "I":
+            n = int(input())
+            data = list(map(int, input().split()))
 
-    elif text in "F":
-        text1="/workspaces/convert-array-into-heap-egilskalns/tests/"
-        text2=input()
-        file=open(text1+text2,"r")
-        text1=file.read()
-        file.close()
-        text1=text1.replace("\n"," ")
-        text1=text1.strip()
-        data=[int(i) for i in text1.split(' ')]
-        n=data[0]
-        data=data[1:]
-    else:
-        n = int(text)
-        data = list(map(int, input().split()))
+    # elif text == "F":
+    #     text1="/workspaces/convert-array-into-heap-egilskalns/tests/"
+    #     text2=input()
+    #     file=open(text1+text2,"r")
+    #     text1=file.read()
+    #     file.close()
+    #     text1=text1.replace("\n"," ")
+    #     text1=text1.strip()
+    #     data=[int(i) for i in text1.split(' ')]
+    #     n=data[0]
+    #     data=data[1:]
+    # else:
+    #     if text.isdigit():
+    #         n = text
+    #     data = list(map(int, input().split()))
         # print(data,n)
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
