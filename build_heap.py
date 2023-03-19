@@ -2,7 +2,7 @@
 
 swaps = []
 def build_heap(data,i):
-    print(i)
+    # print(i)
     
     def check(data,j):
         
@@ -64,7 +64,7 @@ def main():
         data=[int(i) for i in text3.split(' ')]
         n=data[0]
         data=data[1:]
-        print(n)
+        # print(data,n)
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
 
@@ -82,3 +82,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
