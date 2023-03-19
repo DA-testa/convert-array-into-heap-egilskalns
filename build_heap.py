@@ -68,6 +68,9 @@ def main():
         data=[int(i) for i in text1.split(' ')]
         n=data[0]
         data=data[1:]
+    else:
+        n = int(text)
+        data = list(map(int, input().split()))
         # print(data,n)
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
